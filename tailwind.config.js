@@ -11,6 +11,9 @@ export default {
         sm: 'calc(var(--radius) - 4px)',
       },
       colors: {
+        primary: '#219653',
+        secondary: '#828282',
+        '#222222': '#222222',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {
@@ -20,11 +23,6 @@ export default {
         popover: {
           DEFAULT: 'hsl(var(--popover))',
           foreground: 'hsl(var(--popover-foreground))',
-        },
-        primary: '#219653',
-        secondary: {
-          DEFAULT: 'hsl(var(--secondary))',
-          foreground: 'hsl(var(--secondary-foreground))',
         },
         muted: {
           DEFAULT: 'hsl(var(--muted))',
@@ -52,4 +50,4 @@ export default {
     },
   },
   plugins: [require('tailwindcss-animate')],
-}
+};
