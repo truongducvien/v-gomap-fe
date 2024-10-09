@@ -2,6 +2,12 @@ export const PATHS = {
   /**
    * Public path
    */
-  GREETING: '/',
+  GREETING: '/greeting',
   ABOUT_US: '/about-us',
+  NOT_FOUND: '*',
+
+  /**
+   * Private path
+   */
+  HOME: '/',
 };
