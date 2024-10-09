@@ -4,11 +4,14 @@ import './index.css';
 import { BrowserRouter } from 'react-router-dom';
 import { Suspense } from 'react';
 import { AuthProvider } from './hooks/useAuthContext.tsx';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
     <Suspense fallback={<p>Loading ...</p>} />
     <AuthProvider>
+      <ToastContainer />
       <App />
     </AuthProvider>
   </BrowserRouter>
