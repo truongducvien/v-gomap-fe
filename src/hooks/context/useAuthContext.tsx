@@ -13,12 +13,14 @@ interface AuthContextType {
   isAuthenticated: boolean;
   handleLoginSocial: (provider: SocialProvider, redirect?: string) => void;
   handleLogin: (token: string) => void;
+  handleLogOut: () => void;
 }
 
 const initialValues: AuthContextType = {
   isAuthenticated: false,
   handleLoginSocial: () => {},
   handleLogin: () => {},
+  handleLogOut: () => {},
 };
 
 const AuthContext = createContext<AuthContextType>(initialValues);
@@ -48,10 +50,17 @@ export const AuthProvider = ({ children }: Props) => {
     }
   };
 
+  const handleLogOut = () => {
+    removeLS('access_token');
+    removeLS('session_expired');
+    setIsAuthenticated(false);
+  };
+
   const contextValue: AuthContextType = {
     isAuthenticated,
     handleLoginSocial,
     handleLogin,
+    handleLogOut,
   };
 
   return (
