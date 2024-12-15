@@ -3,7 +3,7 @@ import App from './App.tsx';
 import './index.css';
 import { BrowserRouter } from 'react-router-dom';
 import { Suspense } from 'react';
-import { AuthProvider } from './hooks/useAuthContext.tsx';
+import { AuthProvider } from './hooks/context/useAuthContext.tsx';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

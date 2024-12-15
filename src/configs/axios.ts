@@ -1,4 +1,5 @@
 import { getLS } from '@/utils';
+import { handleUnauthorized } from '@/utils/common';
 import axios from 'axios';
 
 const axiosInstance = axios.create({
@@ -14,11 +15,22 @@ axiosInstance.interceptors.request.use((config) => {
   return config;
 });
 
+axiosInstance.interceptors.response.use(
+  (value) => value,
+  async (error) => {
+    const status = error?.response?.status;
+
+    if (status === 401) handleUnauthorized();
+
+    return Promise.reject(error);
+  }
+);
+
 // TODO: Handle refresh token:
 
 // let tokenRefreshing = false;
 
-// const waitRefreshToken = (retry = 30) => {
+// const   = (retry = 30) => {
 //   return new Promise((resolve) => {
 //     setTimeout(() => {
 //       if (tokenRefreshing && retry > 0) {

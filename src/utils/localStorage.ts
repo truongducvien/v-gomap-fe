@@ -1,5 +1,6 @@
 const LS_KEY = {
   ACCESS_TOKEN: 'access_token',
+  SESSION_EXPIRED: 'session_expired',
 } as const;
 
 export const setLS = (
